@@ -1,56 +1,40 @@
-## Kubernetes Architecture
+# 🚀 AI DevOps Kubernetes Architecture
+
+## 📌 Overview
+This architecture represents an AI-powered DevOps system that performs log analysis and auto-healing using Kubernetes and LLM (Claude).
+
+---
+
+## 🏗 Architecture Diagram
 
 ```mermaid
 graph TD
+
     User --> LoadBalancer
     LoadBalancer --> Ingress
     Ingress --> Service
-    Service --> Pod
-    
----
 
-# 🔵 STEP 3: View Diagram
+    Service --> Pod1
+    Service --> Pod2
 
-👉 Where it works automatically:
+    Pod1 --> Logs
+    Pod2 --> Logs
 
-- GitHub README ✅  
-- GitLab ✅  
-- VS Code (with Mermaid extension)  
+    Logs --> AIEngine
+    AIEngine --> Analysis
 
----
-
-# 🟡 STEP 4: Use Online Editor (Optional)
-
-👉 Go to:
-https://mermaid.live
-
-- Paste code
-- See diagram instantly
-- Export as PNG/SVG
-
----
-
-# 🔥 REAL DEVOPS EXAMPLE (FOR YOUR PROJECT)
-
-Use this 👇
-
-```mermaid
-graph TD
-    User --> LoadBalancer
-    LoadBalancer --> Ingress
-    Ingress --> Service
-    Service --> Pod
-
-    Pod --> Logs
-    Logs --> ClaudeAI
-
-    ClaudeAI --> Analysis
-    Analysis --> AutoHealing
+    Analysis --> DecisionEngine
+    DecisionEngine --> AutoHealing
 
     AutoHealing --> Kubernetes
 
-    Prometheus --> Pod
+    Prometheus --> Pod1
+    Prometheus --> Pod2
     Grafana --> Prometheus
 
-    GitHubActions --> Deployment
-    Deployment --> Kubernetes
+    GitHubActions --> CI
+    CI --> CD
+    CD --> Kubernetes
+
+    Terraform --> Infrastructure
+    Infrastructure --> Kubernetes
